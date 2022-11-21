@@ -2,8 +2,10 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import HomePage from './components/HomePage';
+import ArticlePage from './components/ArticlePage';
 
 function App() {
 
@@ -12,9 +14,9 @@ function App() {
   useEffect(() => {
     const getHeadlines = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/response`)
-        console.dir(response.data)
-        setData(response.data.results)
+        const response = await axios.get(process.env.REACT_APP_NEWSDATAURL)
+        console.dir(response)
+        setData(response.data.response.results)
       }
       catch (error) {
         console.log(error)
@@ -27,11 +29,17 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Header></Header>
-      <HomePage headlines={data}></HomePage>
-      <Footer></Footer>
-    </div>
+    <Router>
+      <div className="App">
+
+        <Header></Header>
+        <Routes>
+          <Route path='/' element={<HomePage headlines={data}></HomePage>}></Route>
+          <Route path='/article/:id' element={<ArticlePage headlines={data}></ArticlePage>}></Route>
+        </Routes>
+        <Footer></Footer>
+      </div>
+    </Router>
   );
 }
 
