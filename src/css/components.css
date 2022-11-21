@@ -36,3 +36,24 @@ img {
 
 
 }
+
+.header {
+    border-bottom: double;
+    background-image: -webkit-linear-gradient(50deg, #246ba9 50%, #d8e6f3 50%);
+    padding: 10px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.footer {
+    border-top: double;
+    background-image: -webkit-linear-gradient(50deg, #d8e6f3 50%, #246ba9 50%);
+    padding: 10px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: 900;
+
+}
+
+.headTitle {
+    padding: 10px;
+
+}

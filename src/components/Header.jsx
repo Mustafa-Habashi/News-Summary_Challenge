@@ -2,7 +2,7 @@ import React from 'react'
 
 function Header() {
     return (
-        <div><h1>
+        <div className='header'><h1>
             DIGITAL FUTURES NEWS
         </h1></div>
     )
